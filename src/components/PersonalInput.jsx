@@ -1,17 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import "./PersonalInput.css";
 
 const PersonalInput = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
+  const formElement = useRef(null);
 
   const toggleFormVisibility = () => {
-    setIsFormVisible(!isFormVisible);
+    if (isFormVisible && formElement.current) {
+      formElement.current.style.maxHeight = "0";
+      setTimeout(() => setIsFormVisible(false), 500); // Delay setting isFormVisible to false
+    } else {
+      setIsFormVisible(true);
+    }
   };
 
+  useEffect(() => {
+    if (formElement.current) {
+      formElement.current.style.maxHeight = isFormVisible
+        ? `${formElement.current.scrollHeight}px`
+        : "0";
+    }
+  }, [isFormVisible]);
+
   return (
-    <div className="personalInputCard" onClick={toggleFormVisibility}>
+    <div className="personalInput__card" onClick={toggleFormVisibility}>
       <h2>Personal Details</h2>
       {isFormVisible && (
-        <form>
+        <form ref={formElement} className="form">
           <div className="inputContainer">
             <label>
               <input
