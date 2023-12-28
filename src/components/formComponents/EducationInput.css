@@ -1,0 +1,12 @@
+.educationInput__card {
+  cursor: pointer;
+}
+
+.form {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-out;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}

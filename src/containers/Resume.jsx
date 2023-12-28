@@ -1,7 +1,7 @@
 import React from "react";
-import Personal from "../components/Personal";
-import Education from "../components/Education";
-import Experience from "../components/Experience";
+import Personal from "../components/resumeComponents/Personal";
+import Education from "../components/resumeComponents/Education";
+import Experience from "../components/resumeComponents/Experience";
 
 const Resume = () => {
   return (

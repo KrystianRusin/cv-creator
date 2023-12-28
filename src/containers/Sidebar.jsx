@@ -1,7 +1,7 @@
 import React from "react";
-import PersonalInput from "../components/PersonalInput";
-import EducationInput from "../components/EducationInput";
-import ExperienceInput from "../components/ExperienceInput";
+import PersonalInput from "../components/formComponents/PersonalInput";
+import EducationInput from "../components/formComponents/EducationInput";
+import ExperienceInput from "../components/formComponents/ExperienceInput";
 import "./Sidebar.css";
 
 const Sidebar = () => {
