@@ -23,8 +23,10 @@ const EducationInput = () => {
   }, [isFormVisible]);
 
   return (
-    <div className="EducationInput__card" onClick={toggleFormVisibility}>
-      <h2>Education</h2>
+    <div>
+      <h2 className="educationInput__card" onClick={toggleFormVisibility}>
+        Education
+      </h2>
       {isFormVisible && (
         <form ref={formElement} className="form">
           <div className="inputContainer">
@@ -55,11 +57,6 @@ const EducationInput = () => {
                 placeholder="End Date (Leave empty if current)"
                 className="text__input"
               />
-            </label>
-          </div>
-          <div>
-            <label>
-              <textarea placeholder="City" className="text__input" />
             </label>
           </div>
         </form>

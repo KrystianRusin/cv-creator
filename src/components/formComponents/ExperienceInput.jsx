@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import "./ExperienceInput.css";
 
 const ExperienceInput = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -22,8 +23,10 @@ const ExperienceInput = () => {
   }, [isFormVisible]);
 
   return (
-    <div className="experienceInput__card" onClick={toggleFormVisibility}>
-      <h2>Experience</h2>
+    <div>
+      <h2 className="experienceInput__card" onClick={toggleFormVisibility}>
+        Experience
+      </h2>
       {isFormVisible && (
         <form ref={formElement} className="form">
           <div className="inputContainer">

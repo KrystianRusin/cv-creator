@@ -23,8 +23,10 @@ const PersonalInput = () => {
   }, [isFormVisible]);
 
   return (
-    <div className="personalInput__card" onClick={toggleFormVisibility}>
-      <h2>Personal Details</h2>
+    <div>
+      <h2 className="personalInput__card" onClick={toggleFormVisibility}>
+        Personal Details
+      </h2>
       {isFormVisible && (
         <form ref={formElement} className="form">
           <div className="inputContainer">

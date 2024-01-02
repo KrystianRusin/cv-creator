@@ -7,9 +7,16 @@ import "./Sidebar.css";
 const Sidebar = () => {
   return (
     <div className="sidebar__content">
-      <PersonalInput />
-      <EducationInput />
-      <ExperienceInput />
+      <div className="form__container">
+        <PersonalInput />
+      </div>
+
+      <div className="form__container">
+        <EducationInput />
+      </div>
+      <div className="form__container">
+        <ExperienceInput />
+      </div>
     </div>
   );
 };
