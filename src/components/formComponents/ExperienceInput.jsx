@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./ExperienceInput.css";
 
-const ExperienceInput = () => {
+const ExperienceInput = ({ onUserInput, userData }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const formElement = useRef(null);
 
@@ -12,6 +12,11 @@ const ExperienceInput = () => {
     } else {
       setIsFormVisible(true);
     }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    onUserInput(e);
   };
 
   useEffect(() => {
@@ -33,38 +38,61 @@ const ExperienceInput = () => {
             <label>
               <input
                 type="text"
+                name="companyName"
                 placeholder="Company Name"
+                value={userData.experience.companyName}
                 className="text__input"
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <div className="inputContainer">
+            <label>
+              <input
+                type="text"
+                name="jobTitle"
+                placeholder="Job Title"
+                value={userData.experience.jobTitle}
+                className="text__input"
+                onChange={handleChange}
               />
             </label>
           </div>
           <div>
             <label>
-              <input type="text" placeholder="City" className="text__input" />
+              <input
+                type="text"
+                name="city"
+                placeholder="City"
+                value={userData.experience.city}
+                className="text__input"
+                onChange={handleChange}
+              />
             </label>
           </div>
           <div>
             <label>
               <input
                 type="date"
+                name="startDate"
                 placeholder="Start Date"
+                value={userData.experience.startDate}
                 className="text__input"
+                onChange={handleChange}
               />
             </label>
             <label>
               <input
                 type="date"
+                name="endDate"
                 placeholder="End Date (Leave empty if current)"
+                value={userData.experience.endDate}
                 className="text__input"
+                onChange={handleChange}
               />
             </label>
           </div>
           <div></div>
-          <div>
-            <label>
-              <input type="text" placeholder="City" className="text__input" />
-            </label>
-          </div>
         </form>
       )}
     </div>

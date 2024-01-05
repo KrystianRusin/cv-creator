@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./EducationInput.css";
 
-const EducationInput = () => {
+const EducationInput = ({ onUserInput, userData }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const formElement = useRef(null);
 
@@ -12,6 +12,11 @@ const EducationInput = () => {
     } else {
       setIsFormVisible(true);
     }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    onUserInput(e);
   };
 
   useEffect(() => {
@@ -33,29 +38,65 @@ const EducationInput = () => {
             <label>
               <input
                 type="text"
+                name="schoolName"
                 placeholder="Company Name"
                 className="text__input"
+                value={userData.education.schoolName}
+                onChange={handleChange}
               />
             </label>
           </div>
           <div>
             <label>
-              <input type="text" placeholder="City" className="text__input" />
+              <input
+                type="text"
+                name="cityName"
+                placeholder="City"
+                className="text__input"
+                value={userData.education.cityName}
+                onChange={handleChange}
+              />
             </label>
           </div>
           <div>
             <label>
               <input
                 type="date"
+                name="startDate"
                 placeholder="Start Date"
                 className="text__input"
+                value={userData.education.startDate}
+                onChange={handleChange}
               />
             </label>
             <label>
               <input
                 type="date"
+                name="endDate"
                 placeholder="End Date (Leave empty if current)"
                 className="text__input"
+                value={userData.education.endDate}
+                onChange={handleChange}
+              />
+            </label>
+            <label>
+              <input
+                type="text"
+                name="degree"
+                placeholder="Degree"
+                className="text__input"
+                value={userData.education.degree}
+                onChange={handleChange}
+              />
+            </label>
+            <label>
+              <input
+                type="text"
+                name="major"
+                placeholder="Major"
+                className="text__input"
+                value={userData.education.major}
+                onChange={handleChange}
               />
             </label>
           </div>

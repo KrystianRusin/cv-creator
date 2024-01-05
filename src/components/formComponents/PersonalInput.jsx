@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./PersonalInput.css";
 
-const PersonalInput = () => {
+const PersonalInput = ({ onUserInput, userData }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const formElement = useRef(null);
 
@@ -12,6 +12,11 @@ const PersonalInput = () => {
     } else {
       setIsFormVisible(true);
     }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    onUserInput(e);
   };
 
   useEffect(() => {
@@ -33,8 +38,11 @@ const PersonalInput = () => {
             <label>
               <input
                 type="text"
+                name="fullName"
                 placeholder="Full Name"
+                value={userData.personal.fullName}
                 className="text__input"
+                onChange={handleChange}
               />
             </label>
           </div>
@@ -42,8 +50,11 @@ const PersonalInput = () => {
             <label>
               <input
                 type="email"
+                name="email"
                 placeholder="Email Address"
+                value={userData.personal.email}
                 className="text__input"
+                onChange={handleChange}
               />
             </label>
           </div>
@@ -51,14 +62,24 @@ const PersonalInput = () => {
             <label>
               <input
                 type="phone"
+                name="phone"
+                value={userData.personal.phone}
                 placeholder="Phone Number"
                 className="text__input"
+                onChange={handleChange}
               />
             </label>
           </div>
           <div>
             <label>
-              <input type="text" placeholder="City" className="text__input" />
+              <input
+                type="text"
+                name="address"
+                value={userData.personal.address}
+                placeholder="City"
+                className="text__input"
+                onChange={handleChange}
+              />
             </label>
           </div>
         </form>
