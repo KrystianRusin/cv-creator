@@ -65,7 +65,11 @@ const EducationInput = ({ onUserInput, userData }) => {
                 name="startDate"
                 placeholder="Start Date"
                 className="text__input"
-                value={userData.education.startDate}
+                value={
+                  new Date(userData.education.startDate)
+                    .toISOString()
+                    .split("T")[0]
+                }
                 onChange={handleChange}
               />
             </label>
@@ -75,7 +79,11 @@ const EducationInput = ({ onUserInput, userData }) => {
                 name="endDate"
                 placeholder="End Date (Leave empty if current)"
                 className="text__input"
-                value={userData.education.endDate}
+                value={
+                  new Date(userData.education.endDate)
+                    .toISOString()
+                    .split("T")[0]
+                }
                 onChange={handleChange}
               />
             </label>

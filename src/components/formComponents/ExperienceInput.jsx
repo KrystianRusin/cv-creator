@@ -76,7 +76,11 @@ const ExperienceInput = ({ onUserInput, userData }) => {
                 type="date"
                 name="startDate"
                 placeholder="Start Date"
-                value={userData.experience.startDate}
+                value={
+                  new Date(userData.experience.startDate)
+                    .toISOString()
+                    .split("T")[0]
+                }
                 className="text__input"
                 onChange={handleChange}
               />
@@ -86,7 +90,11 @@ const ExperienceInput = ({ onUserInput, userData }) => {
                 type="date"
                 name="endDate"
                 placeholder="End Date (Leave empty if current)"
-                value={userData.experience.endDate}
+                value={
+                  new Date(userData.experience.endDate)
+                    .toISOString()
+                    .split("T")[0]
+                }
                 className="text__input"
                 onChange={handleChange}
               />
