@@ -8,7 +8,15 @@ const Resume = ({ userData }) => {
   return (
     <div className="resumeContainer">
       <Personal userData={userData} />
+      <div className="headerContainer">
+        <h2>Education</h2>
+        <hr />
+      </div>
       <Education userData={userData} />
+      <div className="headerContainer">
+        <h2>Experience</h2>
+        <hr />
+      </div>
       <Experience userData={userData} />
     </div>
   );

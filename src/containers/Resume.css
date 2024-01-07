@@ -1,9 +1,26 @@
 .resumeContainer {
   border: 2px solid rgb(160, 159, 159);
-  min-height: 800px;
-  min-width: 568px;
+  min-height: 700px;
+  min-width: 532px;
   margin-left: 16px;
   margin-top: 16px;
   background: white;
   padding: 32px;
+}
+
+.headerContainer {
+  width: 100%;
+  max-height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
+.headerContainer hr {
+  width: 100%;
+  margin-top: 24px;
+  border-top: 1px solid black;
 }
