@@ -1,0 +1,64 @@
+.educationCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.educationCard h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.headerContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.headerContainer hr {
+  width: 100%;
+  margin-top: 28px;
+  padding: 0;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.educationNameCity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 128px;
+  padding-right: 64px;
+  width: 100%;
+}
+
+.educationNameCity h3 {
+  margin-left: 16px;
+  margin-right: 16px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.educationNameCity i {
+  font-size: 12px;
+  margin-left: 16px;
+}
+
+.educationMajorDate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 64px;
+  padding-right: 64px;
+  width: 100%;
+}
+
+.educationMajorDate p {
+  font-size: 12px;
+  margin-left: 16px;
+}

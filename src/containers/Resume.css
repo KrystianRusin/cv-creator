@@ -1,8 +1,9 @@
 .resumeContainer {
   border: 2px solid rgb(160, 159, 159);
   min-height: 800px;
-  min-width: 600px;
+  min-width: 568px;
   margin-left: 16px;
   margin-top: 16px;
   background: white;
+  padding: 32px;
 }
