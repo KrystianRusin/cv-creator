@@ -2,6 +2,7 @@ import React from "react";
 import Personal from "../components/resumeComponents/Personal";
 import Education from "../components/resumeComponents/Education";
 import Experience from "../components/resumeComponents/Experience";
+import "./Resume.css";
 
 const Resume = ({ userData }) => {
   return (

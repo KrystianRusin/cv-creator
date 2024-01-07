@@ -1,13 +1,16 @@
 .sidebar__content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin: 64px;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 64px;
+  min-height: 600px;
 }
 
 .form__container {
   background-color: rgb(248, 247, 247);
-  width: 320px;
+  width: 424px;
   min-height: 30px;
   padding: 16px;
   border-radius: 20px;

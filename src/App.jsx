@@ -11,7 +11,6 @@ function App() {
       phone: "123-456-7890",
       city: "New York",
       state: "NY",
-      zip: "12345",
     },
     education: {
       schoolName: "Harvard University",
@@ -27,6 +26,7 @@ function App() {
       startDate: "01-01-2020",
       endDate: "08-01-2021",
       jobTitle: "Software Engineer",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
   });
 

@@ -99,6 +99,17 @@ const ExperienceInput = ({ onUserInput, userData }) => {
                 onChange={handleChange}
               />
             </label>
+            <label>
+              <textarea
+                rows={5}
+                cols={35}
+                name="description"
+                placeholder="Role Description"
+                value={userData.experience.description}
+                className="text__input"
+                onChange={handleChange}
+              />
+            </label>
           </div>
           <div></div>
         </form>
