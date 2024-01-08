@@ -12,13 +12,19 @@ const Sidebar = ({ onUserInput, userData }) => {
   return (
     <div className="sidebar__content">
       <div className="form__container">
-        <PersonalInput onUserInput={handleSubmit} userData={userData} />
+        <div className="form__title">
+          <PersonalInput onUserInput={handleSubmit} userData={userData} />
+        </div>
       </div>
       <div className="form__container">
-        <EducationInput onUserInput={handleSubmit} userData={userData} />
+        <div className="form__title">
+          <EducationInput onUserInput={handleSubmit} userData={userData} />
+        </div>
       </div>
       <div className="form__container">
-        <ExperienceInput onUserInput={handleSubmit} userData={userData} />
+        <div className="form__title">
+          <ExperienceInput onUserInput={handleSubmit} userData={userData} />
+        </div>
       </div>
     </div>
   );

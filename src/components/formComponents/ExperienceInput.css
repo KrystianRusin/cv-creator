@@ -10,3 +10,16 @@
   gap: 16px;
   flex-direction: column;
 }
+
+.button {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  gap: 16px;
+}

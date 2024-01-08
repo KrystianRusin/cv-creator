@@ -7,3 +7,10 @@
   max-height: 0;
   transition: max-height 0.5s ease-out;
 }
+
+h2 {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  gap: 16px;
+}
