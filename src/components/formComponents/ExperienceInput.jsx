@@ -1,9 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
+import WorkIcon from "@mui/icons-material/Work";
+import AddIcon from "@mui/icons-material/Add";
+import ExperienceCard from "./ExperienceCard";
 import "./ExperienceInput.css";
 
 const ExperienceInput = ({ onUserInput, userData }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isButtonVisible, setIsButtonVisible] = useState(false);
+  const [experiences, setExperiences] = useState([]);
   const formElement = useRef(null);
+  const buttonElement = useRef(null);
 
   const toggleFormVisibility = () => {
     if (isFormVisible && formElement.current) {
@@ -11,6 +17,15 @@ const ExperienceInput = ({ onUserInput, userData }) => {
       setTimeout(() => setIsFormVisible(false), 500); // Delay setting isFormVisible to false
     } else {
       setIsFormVisible(true);
+    }
+  };
+
+  const toggleButtonVisibility = () => {
+    if (isButtonVisible && buttonElement.current) {
+      buttonElement.current.style.maxHeight = "0";
+      setTimeout(() => setIsButtonVisible(false), 500); // Delay setting isFormVisible to false
+    } else {
+      setIsButtonVisible(true);
     }
   };
 
@@ -27,13 +42,53 @@ const ExperienceInput = ({ onUserInput, userData }) => {
     }
   }, [isFormVisible]);
 
+  useEffect(() => {
+    if (buttonElement.current) {
+      buttonElement.current.style.maxHeight = isButtonVisible
+        ? `${buttonElement.current.scrollHeight}px`
+        : "0";
+    }
+  }, [isButtonVisible]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    setExperiences((prevExperiences) => [...prevExperiences, data]);
+  };
+
+  const deleteExperience = (index) => {
+    setExperiences((prevExperiences) =>
+      prevExperiences.filter((_, i) => i !== index)
+    );
+  };
+
   return (
     <div>
-      <h2 className="experienceInput__card" onClick={toggleFormVisibility}>
+      <h2 className="experienceInput__card" onClick={toggleButtonVisibility}>
+        <WorkIcon fontSize="large" />
         Experience
       </h2>
+      {experiences.map((experience, index) => (
+        <ExperienceCard
+          key={index}
+          data={experience}
+          onDelete={() => deleteExperience(index)}
+        />
+      ))}
+      {isButtonVisible && (
+        <button
+          ref={buttonElement}
+          onClick={toggleFormVisibility}
+          className="button"
+        >
+          Add Experience
+        </button>
+      )}
       {isFormVisible && (
-        <form ref={formElement} className="form">
+        <form ref={formElement} className="form" onSubmit={handleSubmit}>
           <div className="inputContainer">
             <label>
               <input
@@ -111,6 +166,7 @@ const ExperienceInput = ({ onUserInput, userData }) => {
               />
             </label>
           </div>
+          <button type="submit">Add</button>
           <div></div>
         </form>
       )}

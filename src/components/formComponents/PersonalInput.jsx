@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./PersonalInput.css";
+import PersonIcon from "@mui/icons-material/Person";
 
 const PersonalInput = ({ onUserInput, userData }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -30,6 +31,7 @@ const PersonalInput = ({ onUserInput, userData }) => {
   return (
     <div>
       <h2 className="personalInput__card" onClick={toggleFormVisibility}>
+        <PersonIcon fontSize="large" />
         Personal Details
       </h2>
       {isFormVisible && (
