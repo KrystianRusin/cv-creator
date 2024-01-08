@@ -4,17 +4,24 @@ import AddIcon from "@mui/icons-material/Add";
 import EducationCard from "./EducationCard";
 import "./EducationInput.css";
 
-const EducationInput = ({ onUserInput, userData }) => {
+const EducationInput = ({
+  onUserInput,
+  userData,
+  educations,
+  setEducations,
+  deleteEducation,
+}) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isButtonVisible, setIsButtonVisible] = useState(false);
-  const [educations, setEducations] = useState([]);
   const formElement = useRef(null);
   const buttonElement = useRef(null);
 
   const toggleFormVisibility = () => {
     if (isFormVisible && formElement.current) {
       formElement.current.style.maxHeight = "0";
-      setTimeout(() => setIsFormVisible(false), 500); // Delay setting isFormVisible to false
+      setTimeout(() => {
+        setIsFormVisible(false);
+      }, 500); // Delay setting isFormVisible to false
     } else {
       setIsFormVisible(true);
     }
@@ -23,7 +30,10 @@ const EducationInput = ({ onUserInput, userData }) => {
   const toggleButtonVisibility = () => {
     if (isButtonVisible && buttonElement.current) {
       buttonElement.current.style.maxHeight = "0";
-      setTimeout(() => setIsButtonVisible(false), 500); // Delay setting isFormVisible to false
+      setTimeout(() => {
+        setIsButtonVisible(false);
+      }, 500); // Delay setting isFormVisible to false
+      toggleFormVisibility();
     } else {
       setIsButtonVisible(true);
     }
@@ -57,12 +67,6 @@ const EducationInput = ({ onUserInput, userData }) => {
     const data = Object.fromEntries(formData);
 
     setEducations((prevEducations) => [...prevEducations, data]);
-  };
-
-  const deleteEducation = (index) => {
-    setEducations((prevEducations) =>
-      prevEducations.filter((_, i) => i !== index)
-    );
   };
 
   return (

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "./containers/Sidebar";
 import Resume from "./containers/Resume";
 import "./App.css";
@@ -31,6 +31,26 @@ function App() {
     },
   });
 
+  const [experiences, setExperiences] = useState([]);
+  const [educations, setEducations] = useState([]);
+
+  useEffect(() => {
+    setExperiences([userData.experience]);
+    setEducations([userData.education]);
+  }, []);
+
+  const deleteExperience = (index) => {
+    setExperiences((prevExperiences) =>
+      prevExperiences.filter((_, i) => i !== index)
+    );
+  };
+
+  const deleteEducation = (index) => {
+    setEducations((prevEducations) =>
+      prevEducations.filter((_, i) => i !== index)
+    );
+  };
+
   const handleUserInput = (e) => {
     const { name, value } = e.target;
     setUserData((prevState) => ({
@@ -52,8 +72,21 @@ function App() {
 
   return (
     <div className="content">
-      <Sidebar onUserInput={handleUserInput} userData={userData} />
-      <Resume userData={userData} />
+      <Sidebar
+        onUserInput={handleUserInput}
+        userData={userData}
+        experiences={experiences}
+        setExperiences={setExperiences}
+        deleteExperience={deleteExperience}
+        educations={educations}
+        setEducations={setEducations}
+        deleteEducation={deleteEducation}
+      />
+      <Resume
+        userData={userData}
+        experiences={experiences}
+        educations={educations}
+      />
     </div>
   );
 }

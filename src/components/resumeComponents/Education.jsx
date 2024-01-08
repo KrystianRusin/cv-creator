@@ -1,19 +1,19 @@
 import React from "react";
 import "./Education.css";
 
-const Education = ({ userData }) => {
+const Education = ({ data }) => {
   return (
     <div className="educationCard">
       <div className="educationNameCity">
-        <h3>{userData.education.schoolName}</h3>
-        <i>{userData.education.cityName}</i>
+        <h3>{data.schoolName}</h3>
+        <i>{data.cityName}</i>
       </div>
       <div className="educationMajorDate">
         <p>
-          {userData.education.degree} in {userData.education.major}
+          {data.degree} in {data.major}
         </p>
         <p>
-          {userData.education.startDate} - {userData.education.endDate}
+          {data.startDate} - {data.endDate}
         </p>
       </div>
     </div>

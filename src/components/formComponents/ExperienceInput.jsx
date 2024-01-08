@@ -4,10 +4,15 @@ import AddIcon from "@mui/icons-material/Add";
 import ExperienceCard from "./ExperienceCard";
 import "./ExperienceInput.css";
 
-const ExperienceInput = ({ onUserInput, userData }) => {
+const ExperienceInput = ({
+  onUserInput,
+  userData,
+  experiences,
+  setExperiences,
+  deleteExperience,
+}) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isButtonVisible, setIsButtonVisible] = useState(false);
-  const [experiences, setExperiences] = useState([]);
   const formElement = useRef(null);
   const buttonElement = useRef(null);
 
@@ -23,7 +28,8 @@ const ExperienceInput = ({ onUserInput, userData }) => {
   const toggleButtonVisibility = () => {
     if (isButtonVisible && buttonElement.current) {
       buttonElement.current.style.maxHeight = "0";
-      setTimeout(() => setIsButtonVisible(false), 500); // Delay setting isFormVisible to false
+      setTimeout(() => setIsButtonVisible(false), 500);
+      toggleFormVisibility(); // Delay setting isFormVisible to false
     } else {
       setIsButtonVisible(true);
     }
@@ -57,12 +63,6 @@ const ExperienceInput = ({ onUserInput, userData }) => {
     const data = Object.fromEntries(formData);
 
     setExperiences((prevExperiences) => [...prevExperiences, data]);
-  };
-
-  const deleteExperience = (index) => {
-    setExperiences((prevExperiences) =>
-      prevExperiences.filter((_, i) => i !== index)
-    );
   };
 
   return (

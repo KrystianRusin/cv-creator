@@ -4,7 +4,7 @@ import Education from "../components/resumeComponents/Education";
 import Experience from "../components/resumeComponents/Experience";
 import "./Resume.css";
 
-const Resume = ({ userData }) => {
+const Resume = ({ userData, experiences, educations }) => {
   return (
     <div className="resumeContainer">
       <Personal userData={userData} />
@@ -12,12 +12,16 @@ const Resume = ({ userData }) => {
         <h2>Education</h2>
         <hr />
       </div>
-      <Education userData={userData} />
+      {educations.map((education, index) => (
+        <Education key={index} data={education} />
+      ))}
       <div className="headerContainer">
         <h2>Experience</h2>
         <hr />
       </div>
-      <Experience userData={userData} />
+      {experiences.map((experience, index) => (
+        <Experience key={index} data={experience} />
+      ))}
     </div>
   );
 };

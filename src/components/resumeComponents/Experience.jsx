@@ -1,21 +1,21 @@
 import React from "react";
 import "./Experience.css";
 
-const Experience = ({ userData }) => {
+const Experience = ({ data }) => {
   return (
     <div>
       <div className="experienceNameCity">
-        <h3>{userData.experience.companyName}</h3>
-        <i>{userData.experience.city}</i>
+        <h3>{data.companyName}</h3>
+        <i>{data.city}</i>
       </div>
       <div className="experiencePositionDate">
-        <p>{userData.experience.jobTitle}</p>
+        <p>{data.jobTitle}</p>
         <p>
-          {userData.experience.startDate} - {userData.experience.endDate}
+          {data.startDate} - {data.endDate}
         </p>
       </div>
       <div className="experienceDescription">
-        <p>{userData.experience.description}</p>
+        <p>{data.description}</p>
       </div>
     </div>
   );

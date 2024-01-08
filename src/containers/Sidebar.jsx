@@ -4,7 +4,16 @@ import EducationInput from "../components/formComponents/EducationInput";
 import ExperienceInput from "../components/formComponents/ExperienceInput";
 import "./Sidebar.css";
 
-const Sidebar = ({ onUserInput, userData }) => {
+const Sidebar = ({
+  onUserInput,
+  userData,
+  experiences,
+  setExperiences,
+  deleteExperience,
+  educations,
+  setEducations,
+  deleteEducation,
+}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onUserInput(e);
@@ -18,12 +27,24 @@ const Sidebar = ({ onUserInput, userData }) => {
       </div>
       <div className="form__container">
         <div className="form__title">
-          <EducationInput onUserInput={handleSubmit} userData={userData} />
+          <EducationInput
+            onUserInput={handleSubmit}
+            userData={userData}
+            educations={educations}
+            setEducations={setEducations}
+            deleteEducation={deleteEducation}
+          />
         </div>
       </div>
       <div className="form__container">
         <div className="form__title">
-          <ExperienceInput onUserInput={handleSubmit} userData={userData} />
+          <ExperienceInput
+            onUserInput={handleSubmit}
+            userData={userData}
+            experiences={experiences}
+            setExperiences={setExperiences}
+            deleteExperience={deleteExperience}
+          />
         </div>
       </div>
     </div>
