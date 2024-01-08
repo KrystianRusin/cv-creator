@@ -40,9 +40,21 @@ const PersonalInput = ({ onUserInput, userData }) => {
             <label>
               <input
                 type="text"
-                name="fullName"
-                placeholder="Full Name"
-                value={userData.personal.fullName}
+                name="firstName"
+                placeholder="First Name"
+                value={userData.personal.firstName}
+                className="text__input"
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <div className="inputContainer">
+            <label>
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                value={userData.personal.lastName}
                 className="text__input"
                 onChange={handleChange}
               />
@@ -79,6 +91,18 @@ const PersonalInput = ({ onUserInput, userData }) => {
                 name="address"
                 value={userData.personal.address}
                 placeholder="City"
+                className="text__input"
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <div>
+            <label>
+              <input
+                type="text"
+                name="github"
+                value={userData.personal.github}
+                placeholder="Github"
                 className="text__input"
                 onChange={handleChange}
               />

@@ -1,13 +1,13 @@
 import React from "react";
-import "./ExperienceCard.css";
 import DeleteIcon from "@mui/icons-material/Delete";
+import "./SkillCard.css";
 
-const ExperienceCard = ({ data, onDelete }) => {
+const SkillCard = ({ data, onDelete }) => {
+  console.log(data);
+
   return (
     <div className="cardContainer">
-      <h5>
-        {data.jobTitle} at {data.companyName}
-      </h5>
+      <h5>{data.skillSet}</h5>
       <button onClick={onDelete}>
         <DeleteIcon />
       </button>
@@ -15,4 +15,4 @@ const ExperienceCard = ({ data, onDelete }) => {
   );
 };
 
-export default ExperienceCard;
+export default SkillCard;

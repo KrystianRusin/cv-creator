@@ -1,0 +1,22 @@
+.skillsContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 0px;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.skillsContainer h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+.skillsContainer i {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}

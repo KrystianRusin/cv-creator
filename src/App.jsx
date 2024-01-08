@@ -6,11 +6,17 @@ import "./App.css";
 function App() {
   const [userData, setUserData] = useState({
     personal: {
-      fullName: "John Doe",
+      firstName: "John",
+      lastName: "Doe",
       email: "johndoe@gmail.com",
       phone: "123-456-7890",
       city: "New York",
       state: "NY",
+      github: "https://www.github.com/johndoe",
+    },
+    skills: {
+      skillSet: "Languages",
+      skillList: "JavaScript, Python, Java, C++",
     },
     education: {
       schoolName: "Harvard University",
@@ -33,10 +39,12 @@ function App() {
 
   const [experiences, setExperiences] = useState([]);
   const [educations, setEducations] = useState([]);
+  const [skills, setSkills] = useState([userData.skills]);
 
   useEffect(() => {
     setExperiences([userData.experience]);
     setEducations([userData.education]);
+    setSkills([userData.skills]);
   }, []);
 
   const deleteExperience = (index) => {
@@ -49,6 +57,10 @@ function App() {
     setEducations((prevEducations) =>
       prevEducations.filter((_, i) => i !== index)
     );
+  };
+
+  const deleteSkills = (index) => {
+    setSkills((prevSkills) => prevSkills.filter((_, i) => i !== index));
   };
 
   const handleUserInput = (e) => {
@@ -78,6 +90,9 @@ function App() {
         experiences={experiences}
         setExperiences={setExperiences}
         deleteExperience={deleteExperience}
+        skills={skills}
+        setSkills={setSkills}
+        deleteSkills={deleteSkills}
         educations={educations}
         setEducations={setEducations}
         deleteEducation={deleteEducation}
@@ -86,6 +101,7 @@ function App() {
         userData={userData}
         experiences={experiences}
         educations={educations}
+        skills={skills}
       />
     </div>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import PersonalInput from "../components/formComponents/PersonalInput";
 import EducationInput from "../components/formComponents/EducationInput";
 import ExperienceInput from "../components/formComponents/ExperienceInput";
+import SkillsInput from "../components/formComponents/SkillsInput";
 import "./Sidebar.css";
 
 const Sidebar = ({
@@ -10,6 +11,9 @@ const Sidebar = ({
   experiences,
   setExperiences,
   deleteExperience,
+  skills,
+  setSkills,
+  deleteSkills,
   educations,
   setEducations,
   deleteEducation,
@@ -23,6 +27,17 @@ const Sidebar = ({
       <div className="form__container">
         <div className="form__title">
           <PersonalInput onUserInput={handleSubmit} userData={userData} />
+        </div>
+      </div>
+      <div className="form__container">
+        <div className="form__title">
+          <SkillsInput
+            onUserInput={handleSubmit}
+            userData={userData}
+            skills={skills}
+            setSkills={setSkills}
+            deleteSkills={deleteSkills}
+          />
         </div>
       </div>
       <div className="form__container">

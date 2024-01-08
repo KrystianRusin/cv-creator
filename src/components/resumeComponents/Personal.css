@@ -6,17 +6,36 @@
 }
 
 .personalSection h2 {
-  font-size: 32px;
+  font-size: 0px;
   gap: 4px;
 }
 
-.personalInfo p {
+.personalInfo p,
+.personalInfo a {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 4px;
+  font-size: 12px;
 }
 
 .personalInfo {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.firstName {
+  font-size: 32px;
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.lastName {
+  font-size: 32px;
+  margin: 0;
+  padding: 0;
 }
