@@ -1,12 +1,13 @@
 .resumeContainer {
   border: 2px solid rgb(160, 159, 159);
-  min-height: 800px;
-  min-width: 532px;
+  min-height: 842px;
+  min-width: 596px;
   margin-left: 16px;
   margin-top: 16px;
   background: white;
-  padding: 32px;
+  background-color: white;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+  padding: 32px;
 }
 
 .headerContainer {

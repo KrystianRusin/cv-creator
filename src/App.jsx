@@ -88,11 +88,29 @@ function App() {
   const resumeRef = useRef();
 
   const printDocument = () => {
+    const resumeContainer = document.querySelector(".resumeContainer");
+    const originalBoxShadow = resumeContainer.style.boxShadow;
+    const originalBorder = resumeContainer.style.border;
+
+    // Temporarily remove the box shadow and border
+    resumeContainer.style.boxShadow = "none";
+    resumeContainer.style.border = "none";
+
     html2canvas(resumeRef.current).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, "JPEG", 0, 0);
-      pdf.save("download.pdf");
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "px",
+        format: [canvas.width, canvas.height], // Set the dimensions of the PDF page to match the dimensions of the canvas
+      });
+      const x = (pdf.internal.pageSize.getWidth() - canvas.width) / 2;
+      const y = (pdf.internal.pageSize.getHeight() - canvas.height) / 2;
+
+      pdf.addImage(imgData, "JPEG", x, y, canvas.width, canvas.height);
+      pdf.save("resume.pdf");
+
+      resumeContainer.style.boxShadow = originalBoxShadow;
+      resumeContainer.style.border = originalBorder;
     });
   };
 
