@@ -33,7 +33,9 @@ const EducationInput = ({
       setTimeout(() => {
         setIsButtonVisible(false);
       }, 500); // Delay setting isFormVisible to false
-      toggleFormVisibility();
+      if (isFormVisible) {
+        toggleFormVisibility();
+      }
     } else {
       setIsButtonVisible(true);
     }

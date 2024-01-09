@@ -29,7 +29,7 @@ const PersonalInput = ({ onUserInput, userData }) => {
   }, [isFormVisible]);
 
   return (
-    <div>
+    <div className="personalContainer">
       <h2 className="personalInput__card" onClick={toggleFormVisibility}>
         <PersonIcon fontSize="large" />
         Personal Details

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import WorkIcon from "@mui/icons-material/Work";
 import AddIcon from "@mui/icons-material/Add";
 import SkillCard from "./SkillCard";
-import "./SkillCard";
+import "./SkillsInput.css";
 
 const ExperienceInput = ({
   onUserInput,
@@ -28,8 +28,10 @@ const ExperienceInput = ({
   const toggleButtonVisibility = () => {
     if (isButtonVisible && buttonElement.current) {
       buttonElement.current.style.maxHeight = "0";
-      setTimeout(() => setIsButtonVisible(false), 500);
-      toggleFormVisibility(); // Delay setting isFormVisible to false
+      setTimeout(() => setIsButtonVisible(false), 500); // Delay setting isFormVisible to false
+      if (isFormVisible) {
+        toggleFormVisibility();
+      }
     } else {
       setIsButtonVisible(true);
     }

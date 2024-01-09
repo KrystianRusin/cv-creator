@@ -1,6 +1,6 @@
 import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import "./EducationCard.css";
+import "./Card.css";
 
 const ExperienceCard = ({ data, onDelete }) => {
   return (
@@ -8,7 +8,7 @@ const ExperienceCard = ({ data, onDelete }) => {
       <h5>
         {data.degree} at {data.schoolName}
       </h5>
-      <button onClick={onDelete}>
+      <button className="deleteButton" onClick={onDelete}>
         <DeleteIcon />
       </button>
     </div>

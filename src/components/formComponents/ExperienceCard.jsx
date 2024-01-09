@@ -1,5 +1,5 @@
 import React from "react";
-import "./ExperienceCard.css";
+import "./Card.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const ExperienceCard = ({ data, onDelete }) => {
@@ -8,7 +8,7 @@ const ExperienceCard = ({ data, onDelete }) => {
       <h5>
         {data.jobTitle} at {data.companyName}
       </h5>
-      <button onClick={onDelete}>
+      <button className="deleteButton" onClick={onDelete}>
         <DeleteIcon />
       </button>
     </div>

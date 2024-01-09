@@ -29,7 +29,9 @@ const ExperienceInput = ({
     if (isButtonVisible && buttonElement.current) {
       buttonElement.current.style.maxHeight = "0";
       setTimeout(() => setIsButtonVisible(false), 500);
-      toggleFormVisibility(); // Delay setting isFormVisible to false
+      if (isFormVisible) {
+        toggleFormVisibility();
+      }
     } else {
       setIsButtonVisible(true);
     }
