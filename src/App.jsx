@@ -1,6 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import Sidebar from "./containers/Sidebar";
 import Resume from "./containers/Resume";
+import DownloadIcon from "@mui/icons-material/Download";
 import "./App.css";
 
 function App() {
@@ -82,27 +85,46 @@ function App() {
     }));
   };
 
+  const resumeRef = useRef();
+
+  const printDocument = () => {
+    html2canvas(resumeRef.current).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, "JPEG", 0, 0);
+      pdf.save("download.pdf");
+    });
+  };
+
   return (
     <div className="content">
-      <Sidebar
-        onUserInput={handleUserInput}
-        userData={userData}
-        experiences={experiences}
-        setExperiences={setExperiences}
-        deleteExperience={deleteExperience}
-        skills={skills}
-        setSkills={setSkills}
-        deleteSkills={deleteSkills}
-        educations={educations}
-        setEducations={setEducations}
-        deleteEducation={deleteEducation}
-      />
-      <Resume
-        userData={userData}
-        experiences={experiences}
-        educations={educations}
-        skills={skills}
-      />
+      <div className="sideBar__container">
+        <button className="download__btn" onClick={printDocument}>
+          <DownloadIcon />
+        </button>
+        <Sidebar
+          onUserInput={handleUserInput}
+          userData={userData}
+          experiences={experiences}
+          setExperiences={setExperiences}
+          deleteExperience={deleteExperience}
+          skills={skills}
+          setSkills={setSkills}
+          deleteSkills={deleteSkills}
+          educations={educations}
+          setEducations={setEducations}
+          deleteEducation={deleteEducation}
+        />
+      </div>
+
+      <div ref={resumeRef}>
+        <Resume
+          userData={userData}
+          experiences={experiences}
+          educations={educations}
+          skills={skills}
+        />
+      </div>
     </div>
   );
 }
