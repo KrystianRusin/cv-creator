@@ -4,6 +4,7 @@ import jsPDF from "jspdf";
 import Sidebar from "./containers/Sidebar";
 import Resume from "./containers/Resume";
 import DownloadIcon from "@mui/icons-material/Download";
+import DeleteIcon from "@mui/icons-material/Delete";
 import "./App.css";
 
 function App() {
@@ -116,10 +117,15 @@ function App() {
 
   return (
     <div className="content">
-      <div className="sideBar__container">
-        <button className="download__btn" onClick={printDocument}>
-          <DownloadIcon />
-        </button>
+      <div className="sidebar__container">
+        <div className="button__container">
+          <button className="clear__resume">
+            <DeleteIcon />
+          </button>
+          <button className="download__btn" onClick={printDocument}>
+            <DownloadIcon />
+          </button>
+        </div>
         <Sidebar
           onUserInput={handleUserInput}
           userData={userData}
