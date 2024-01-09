@@ -115,11 +115,48 @@ function App() {
     });
   };
 
+  const clearResume = () => {
+    setUserData({
+      personal: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        city: "",
+        state: "",
+        github: "",
+      },
+      skills: {
+        skillSet: "",
+        skillList: "",
+      },
+      education: {
+        schoolName: "",
+        cityName: "",
+        startDate: "",
+        endDate: "",
+        degree: "",
+        major: "",
+      },
+      experience: {
+        companyName: "",
+        city: "",
+        startDate: "",
+        endDate: "",
+        jobTitle: "",
+        description: "",
+      },
+    });
+    setSkills([]);
+    setExperiences([]);
+    setEducations([]);
+  };
+
   return (
     <div className="content">
       <div className="sidebar__container">
         <div className="button__container">
-          <button className="clear__resume">
+          <button className="clear__resume" onClick={clearResume}>
             <DeleteIcon />
           </button>
           <button className="download__btn" onClick={printDocument}>
