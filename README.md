@@ -5,8 +5,10 @@ Resume creator that allows you to input your skills, education and work experien
 The CV Creator can be viewed at [https://krystianrusin.github.io/cv-creator/]
 
 ## Features to be implemented:
-- Support on all browsers (Has only been tested on Chrome)
 - Further Styling Improvements
+- Add a Project Section
+- Add Different Layouts
+
 
 
 
